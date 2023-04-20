@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title></title>
+</head>
+<body>
+
+<button onclick="getLocation()">BURAYA TIKLA</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "ENLEM: " + position.coords.latitude + 
+  "<br>BOYLAM: " + position.coords.longitude + "<br><p style=\"color:red\">"+(position.coords.latitude-position.coords.longitude)+"</p>";
+  
+}
+
+
+</script>
+
+</body>
+</html>
